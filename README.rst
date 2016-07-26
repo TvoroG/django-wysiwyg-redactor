@@ -5,11 +5,6 @@ A lightweight wysiwyg editor for Django
     :target: https://pypi.python.org/pypi/django-wysiwyg-redactor/
     :alt: Downloads
 
-Screenshot
-----------
-
-.. image:: https://raw.githubusercontent.com/douglasmiranda/django-wysiwyg-redactor/master/screenshots/redactor.jpg
-
 What's that
 -----------------
 
@@ -33,11 +28,11 @@ Getting started
 
 .. code-block:: python
 
-    INSTALLED_APPS = (  
-        # ...  
-        'redactor',  
-        # ...  
-    ) 
+    INSTALLED_APPS = (
+        # ...
+        'redactor',
+        # ...
+    )
 
 - Add `url(r'^redactor/', include('redactor.urls'))`, to urls.py
 
