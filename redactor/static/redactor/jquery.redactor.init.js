@@ -16,9 +16,6 @@ if (typeof redactor_custom_options === 'undefined') {
                     alert(json.error);
                 };
             }
-            redactor_options.buttons = ['format', 'bold', 'italic', 'deleted', 'lists',
-                                        'image', 'file', 'link'];
-            redactor_options.toolbarFixed = true;
             console.log('BOW', redactor_options);
             $(this).redactor(redactor_options);
         });
