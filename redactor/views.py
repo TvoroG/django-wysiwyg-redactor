@@ -67,7 +67,7 @@ class RedactorUploadView(FormView):
         file_name = force_str(uploader.get_filename())
         file_url = force_str(uploader.get_url())
         data = {
-            'filelink': file_url,
+            'url': file_url,
             'filename': file_name,
         }
         return HttpResponse(json.dumps(data), content_type='application/json')
