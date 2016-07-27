@@ -49,7 +49,7 @@ class RedactorEditor(widgets.Textarea):
     def _media(self):
         js = (
             'redactor/jquery.redactor.init.js',
-            'redactor/new_redactor.js',
+            'redactor/new2_redactor.js',
             'redactor/langs/{0}.js'.format(GLOBAL_OPTIONS.get('lang', 'en')),
         )
 
