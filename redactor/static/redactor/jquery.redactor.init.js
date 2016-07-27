@@ -3,7 +3,7 @@ if (typeof jQuery === 'undefined' && django && django.jQuery) {
 }
 
 if (typeof redactor_custom_options === 'undefined') {
-    redactor_custom_options = {}
+    redactor_custom_options = {};
 }
 
 (function($) {
@@ -14,8 +14,12 @@ if (typeof redactor_custom_options === 'undefined') {
             if (typeof redactor_options.imageUploadErrorCallback === 'undefined') {
                 redactor_options.imageUploadErrorCallback = function (json) {
                     alert(json.error);
-                }
+                };
             }
+            redactor_options.buttons = ['format', 'bold', 'italic', 'deleted', 'lists',
+                                        'image', 'file', 'link'];
+            redactor_options.toolbarFixed = true;
+            console.log('BOW', redactor_options);
             $(this).redactor(redactor_options);
         });
         $(document).trigger('redactorWidgetReady');

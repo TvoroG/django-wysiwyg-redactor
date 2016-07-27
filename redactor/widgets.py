@@ -49,7 +49,7 @@ class RedactorEditor(widgets.Textarea):
     def _media(self):
         js = (
             'redactor/jquery.redactor.init.js',
-            'redactor/redactor{0}.js'.format('' if settings.DEBUG else '.min'),
+            'redactor/new_redactor.js',
             'redactor/langs/{0}.js'.format(GLOBAL_OPTIONS.get('lang', 'en')),
         )
 
@@ -63,7 +63,6 @@ class RedactorEditor(widgets.Textarea):
         css = {
             'all': (
                 'redactor/css/redactor.css',
-                'redactor/css/django_admin.css',
             )
         }
         return forms.Media(css=css, js=js)
