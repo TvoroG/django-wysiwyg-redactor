@@ -17,6 +17,7 @@ if (typeof redactor_custom_options === 'undefined') {
                 };
             }
             console.log('BOW', redactor_options);
+            redactor_options.plugins.push('sourceImage');
             $(this).redactor(redactor_options);
         });
         $(document).trigger('redactorWidgetReady');
