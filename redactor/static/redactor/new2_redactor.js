@@ -2045,10 +2045,15 @@
         insert: function() {
             return {
                 set: function(t) {
-                    this.placeholder.hide(), this.code.set(t), this.focus.end(), this.placeholder.enable()
+                    this.placeholder.hide();
+                    this.code.set(t);
+                    this.focus.end();
+                    this.placeholder.enable();
                 },
                 html: function(e, i) {
-                    this.placeholder.hide(), this.core.editor().focus();
+                    this.placeholder.hide();
+                    this.core.editor().focus();
+
                     var o = this.selection.block(),
                         r = this.selection.inline();
                     'undefined' == typeof i && (i = this.clean.getCurrentType(e, !0), e = this.clean.onPaste(e, i, !0)), e = t.parseHTML(e);
@@ -2155,7 +2160,12 @@
                 },
                 placeHtml: function(e) {
                     var i = document.createElement('span');
-                    i.id = 'redactor\-insert\-marker', i = this.insert.node(i), t(i).before(e), this.selection.restore(), this.caret.after(i), t(i).remove()
+                    i.id = 'redactor\-insert\-marker';
+                    i = this.insert.node(i);
+                    t(i).before(e);
+                    this.selection.restore();
+                    this.caret.after(i);
+                    t(i).remove();
                 },
                 placeNode: function(t, e) {
                     var i = this.selection.get(),
