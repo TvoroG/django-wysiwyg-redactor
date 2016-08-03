@@ -8,6 +8,7 @@ from redactor.utils import json_dumps
 
 
 GLOBAL_OPTIONS = getattr(settings, 'REDACTOR_OPTIONS', {})
+GLOBAL_PLUGINS = getattr(settings, 'REDACTOR_GLOBAL_PLUGINS', [])
 
 
 class RedactorEditor(widgets.Textarea):
@@ -22,6 +23,9 @@ class RedactorEditor(widgets.Textarea):
     def options(self):
         options = GLOBAL_OPTIONS.copy()
         options.update(self.custom_options)
+        if GLOBAL_PLUGINS:
+            options['plugins'] = GLOBAL_PLUGINS + options.get('plugins', [])
+
         if self.allow_file_upload:
             options['fileUpload'] = reverse_lazy(
                 'redactor_upload_file',
