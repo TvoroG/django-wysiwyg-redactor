@@ -16,7 +16,6 @@ if (typeof redactor_custom_options === 'undefined') {
                     alert(json.error);
                 };
             }
-            console.log('BOW', redactor_options);
             redactor_options.plugins.push('sourceImage');
             $(this).redactor(redactor_options);
         });

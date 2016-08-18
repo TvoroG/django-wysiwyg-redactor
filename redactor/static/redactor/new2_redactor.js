@@ -1301,7 +1301,13 @@
                     }
                 },
                 startSync: function(t) {
-                    t = this.core.callback('syncBefore', t), t = this.clean.onSync(t), this.core.textarea().val(t), this.core.callback('sync', t), this.start === !1 && this.core.callback('change', t), this.start = !1
+                    console.log('startSync', t);
+                    t = this.core.callback('syncBefore', t);
+                    t = this.clean.onSync(t);
+                    this.core.textarea().val(t);
+                    this.core.callback('sync', t);
+                    this.start === !1 && this.core.callback('change', t);
+                    this.start = !1;
                 },
                 isSync: function(t) {
                     var e = this.code.html !== !1 ? this.code.html : !1;
@@ -1594,7 +1600,15 @@
                     })
                 },
                 changeHandler: function() {
-                    this.events.stopChanges || (this.code.sync(), this.autosave.is() && (clearTimeout(this.autosaveTimeout), this.autosaveTimeout = setTimeout(t.proxy(this.autosave.send, this), 300)))
+                    console.log('changeHandler');
+                    if (!this.events.stopChanges) {
+                        this.code.sync();
+                        
+                        if (this.autosave.is()) {
+                            clearTimeout(this.autosaveTimeout);
+                            this.autosaveTimeout = setTimeout(t.proxy(this.autosave.send, this), 300);
+                        }
+                    }
                 },
                 onDropUpload: function(t) {
                     if (t.preventDefault(), t.stopPropagation(), (this.opts.dragImageUpload || this.opts.dragFileUpload) && (null !== this.opts.imageUpload || null !== this.opts.fileUpload)) {
